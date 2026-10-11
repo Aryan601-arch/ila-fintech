@@ -1,0 +1,5 @@
+Stock photos used as stand-ins until Ila Infotech's own photos are ready.
+Source: free website templates on npm (Creative Tim "Soft UI Design System" 1.0.4 and
+Start Bootstrap "Landing Page" 6.0.6 / "Creative" 7.0.7, all MIT-licensed). The photos in
+those templates are from Unsplash (unsplash.com), whose licence allows free commercial use.
+Replace with your own team, office and project photos before launch where possible.

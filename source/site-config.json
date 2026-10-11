@@ -1,0 +1,37 @@
+{
+  "_help": {
+    "how_to_use": "Edit the values below. On GitHub, saving (committing) this file rebuilds the live website automatically within a few minutes. On your own computer, run python3 build.py and the website is written to ../site/",
+    "phone_link": "The phone number with no spaces, used for click-to-call. Example: +9779801234567",
+    "domain": "Your website address with https:// and no slash at the end. Used for Google, sharing previews and the sitemap. Change it to your own domain (e.g. https://www.ilainfotech.com) when you move off GitHub Pages.",
+    "form_email": "Where contact and quote forms are delivered. Leave empty to use 'email'. The first message sent after launch asks you to click an activation link (FormSubmit).",
+    "web3forms_key": "Optional. Paste a free access key from web3forms.com to send forms through Web3Forms instead of FormSubmit.",
+    "social": "Paste full profile links. Empty ones are hidden from the site.",
+    "logo": "Optional. Put your logo file in images/ and write its path here, e.g. images/logo.png. Empty uses the IL letter mark.",
+    "opening_hours_schema": "Office hours in the format Google reads: days Mo Tu We Th Fr Sa Su, 24-hour times."
+  },
+  "name": "Ila Infotech",
+  "tagline": "IT Solutions",
+  "domain": "https://aryan601-arch.github.io/ila-fintech",
+  "phone": "+977 98XXXXXXXX",
+  "phone_link": "+97798XXXXXXXX",
+  "whatsapp": "",
+  "email": "info@ilainfotech.com",
+  "careers_email": "careers@ilainfotech.com",
+  "form_email": "",
+  "web3forms_key": "",
+  "address": "Your street address, Kathmandu, Nepal",
+  "city": "Kathmandu",
+  "country": "NP",
+  "map_query": "Kathmandu, Nepal",
+  "hours": "Sun – Fri: 9:00 AM – 6:00 PM",
+  "opening_hours_schema": "Su-Fr 09:00-18:00",
+  "logo": "",
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "linkedin": "",
+    "x": "",
+    "youtube": "",
+    "tiktok": ""
+  }
+}
