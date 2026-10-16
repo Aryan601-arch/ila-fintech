@@ -1,4 +1,4 @@
-/* Ila Infotech site script: menu, slider, scroll animations, forms. */
+/* Site script: menu, slider, scroll animations, forms. */
 (function () {
   'use strict';
   var SITE = /*CONFIG*/{};

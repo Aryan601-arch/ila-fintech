@@ -1,4 +1,4 @@
-# Ila Infotech website: source
+# Ila Fintech website: source
 
 The finished website is built from these files.
 
@@ -8,7 +8,7 @@ The finished website is built from these files.
 | `build.py` | Page text and layout for every page |
 | `base.css`, `extra.css` | Styles (joined into `css/styles.css`) |
 | `main.js` | Menu, slider, animations and form sending |
-| `images/` | Photos (see `images/CREDITS.txt`) |
+| `images/` | Photos (see `images/CREDITS.txt`). `images/brand/` holds the logo and browser-tab icons |
 
 ## Change something
 
@@ -28,6 +28,6 @@ If sending fails, visitors see your email address and phone number instead.
 
 ## Your own domain
 
-Set `domain` to your address (for example `https://www.ilainfotech.com`). The build then adds the
+Set `domain` to your address (for example `https://www.ilafintech.com`). The build then adds the
 `CNAME` file GitHub Pages needs. Point your domain's DNS at GitHub Pages (a `CNAME` record for `www`
 pointing to `aryan601-arch.github.io`), then tick **Enforce HTTPS** under Settings → Pages.

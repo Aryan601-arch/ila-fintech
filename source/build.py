@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Ila Infotech website.
+"""Build the company website.
 
     python3 build.py                 # writes the finished site to ../site
                                      # (on GitHub this runs by itself on every change)
@@ -19,6 +19,8 @@ import urllib.parse
 from pathlib import Path
 
 SRC = Path(__file__).resolve().parent
+BRAND = SRC / 'images' / 'brand'  # optional: your own favicon-32.png, apple-touch-icon.png and icon-512.png
+BRAND_ICONS = (BRAND / 'favicon-32.png').exists()
 TODAY = datetime.date.today()
 
 
@@ -234,11 +236,22 @@ class Site:
     def maps_url(self):
         return 'https://www.google.com/maps/search/?api=1&query=' + urllib.parse.quote_plus(self.c['map_query'])
 
+    @staticmethod
+    def img_size(src, height):
+        """width/height attributes for an image shown at a fixed height, so the page doesn't jump while it loads."""
+        try:
+            from PIL import Image
+            w, h = Image.open(SRC / src).size
+            return f' width="{round(w * height / h)}" height="{height}"'
+        except Exception:
+            return f' height="{height}"'
+
     def logo(self, footer=False):
         c = self.c
         small_style = ' style="color:var(--on-dark)"' if footer else ''
-        if c.get('logo'):
-            return f'<a href="index.html" class="logo"><img src="{e(c["logo"])}" alt="{e(c["name"])}" height="44"></a>'
+        src = (c.get('logo_dark') or c.get('logo')) if footer else c.get('logo')
+        if src:
+            return f'<a href="index.html" class="logo"><img src="{e(src)}" alt="{e(c["name"])}"{self.img_size(src, 40 if footer else 44)}></a>'
         return (f'<a href="index.html" class="logo"><span class="mark" aria-hidden="true">IL</span>'
                 f'<span>{e(c["name"])}<small{small_style}>{e(c["tagline"])}</small></span></a>')
 
@@ -289,7 +302,7 @@ class Site:
             f'<meta property="og:url" content="{e(url)}">',
             f'<meta property="og:image" content="{e(self.domain)}/images/{og_img}">',
             '<meta name="twitter:card" content="summary_large_image">',
-            '<link rel="icon" href="favicon.svg" type="image/svg+xml">',
+            *([] if BRAND_ICONS else ['<link rel="icon" href="favicon.svg" type="image/svg+xml">']),
             '<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">',
             '<link rel="apple-touch-icon" href="apple-touch-icon.png">',
         ]
@@ -541,7 +554,7 @@ class Site:
     <p class="note form-status" id="newsNote" role="status" aria-live="polite"></p>
   </div>
 </div>'''
-        title = 'Ila Infotech Website' if self.preview else f'{c["name"]} | Websites, Apps & Software in {c["city"]}, Nepal'
+        title = f'{c["name"]} Website' if self.preview else f'{c["name"]} | Websites, Apps & Software in {c["city"]}, Nepal'
         self.add('index.html', title,
                  f'{c["name"]} builds websites, mobile apps and custom business software for companies, schools, hospitals and shops in {c["city"]} and across Nepal.',
                  'index.html', main, extra_head=self.org_jsonld())
@@ -679,7 +692,7 @@ class Site:
 </section>
 
 {self.cta("Want help putting these tips into practice?", "Tell us about your business and we'll suggest where to start.", "Contact Us", "contact.html")}'''
-        self.add('blog.html', f'Blog | {c["name"]}', 'Practical tips on websites, software and digital marketing for businesses in Nepal, from the Ila Infotech team.',
+        self.add('blog.html', f'Blog | {c["name"]}', f'Practical tips on websites, software and digital marketing for businesses in Nepal, from the {c["name"]} team.',
                  'blog.html', main)
 
         for p in POSTS:
@@ -940,6 +953,7 @@ class Site:
                 'name': c['name'], 'short_name': c['name'], 'start_url': self.base_path, 'display': 'browser',
                 'background_color': '#FFFFFF', 'theme_color': '#15191E',
                 'icons': [{'src': self.base_path + 'apple-touch-icon.png', 'sizes': '180x180', 'type': 'image/png'},
+                          {'src': self.base_path + 'icon-512.png', 'sizes': '512x512', 'type': 'image/png'} if BRAND_ICONS else
                           {'src': self.base_path + 'favicon.svg', 'sizes': 'any', 'type': 'image/svg+xml'}]}, indent=2), encoding='utf-8')
             (out / '.nojekyll').write_text('', encoding='utf-8')  # GitHub Pages: serve files as they are
             host = urllib.parse.urlparse(self.domain).hostname or ''
@@ -954,8 +968,13 @@ class Site:
             shutil.copy(SRC / 'images' / 'CREDITS.txt', out / 'images' / 'CREDITS.txt')
 
     def write_icons(self, out):
+        if BRAND_ICONS:  # your own icons in images/brand/ win over the generated letter mark
+            for name in ('favicon-32.png', 'apple-touch-icon.png', 'icon-512.png'):
+                if (BRAND / name).exists():
+                    shutil.copy(BRAND / name, out / name)
+            return
         (out / 'favicon.svg').write_text(
-            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#0E9F6E"/>'
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#306CF2"/>'
             '<text x="32" y="43" font-family="Poppins,Arial,Helvetica,sans-serif" font-size="30" font-weight="700" fill="#fff" text-anchor="middle">IL</text></svg>\n',
             encoding='utf-8')
         try:
@@ -970,7 +989,7 @@ class Site:
             S = size * scale
             im = Image.new('RGBA', (S, S), (0, 0, 0, 0))
             d = ImageDraw.Draw(im)
-            d.rounded_rectangle([0, 0, S - 1, S - 1], radius=radius * scale, fill=(14, 159, 110, 255))
+            d.rounded_rectangle([0, 0, S - 1, S - 1], radius=radius * scale, fill=(48, 108, 242, 255))
             font = ImageFont.truetype(font_path, int(S * 0.46)) if font_path else ImageFont.load_default()
             d.text((S / 2, S / 2), 'IL', font=font, fill='white', anchor='mm')
             im.resize((size, size), Image.LANCZOS).save(out / name)
