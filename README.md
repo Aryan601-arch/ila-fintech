@@ -1,8 +1,8 @@
-# Ila Infotech website
+# Ila Fintech website
 
 **Live site:** https://aryan601-arch.github.io/ila-fintech/
 
-The company website for Ila Infotech, an IT company in Kathmandu, Nepal. It has 13 pages:
+The company website for Ila Fintech, an IT company in Kathmandu, Nepal. It has 13 pages:
 Home, About, Services, Solutions, Blog (3 articles), Contact, Careers, Privacy Policy, Terms of Use and a page-not-found page.
 
 ## Update the website
