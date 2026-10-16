@@ -16,6 +16,18 @@ Page text lives in [`source/build.py`](source/build.py). See [`source/README.md`
 
 Before launch, work through [LAUNCH-CHECKLIST.md](LAUNCH-CHECKLIST.md).
 
+## Open it in VS Code
+
+1. Install Python 3 from python.org. On Windows, tick **Add python.exe to PATH** in the installer.
+2. In VS Code, choose **File → Open Folder** and pick the `ila-fintech` folder.
+3. Open a terminal (**Terminal → New Terminal**) and run `pip install pillow` once. It is optional, but it
+   clears the yellow underline VS Code shows on `build.py` and sets the logo's exact size.
+4. Run `python source/build.py` (on a Mac, `python3 source/build.py`). The website is written to `site/`.
+5. Open `site/index.html` in your browser, or right-click it and choose **Open with Live Server** if you have
+   the Live Server extension.
+
+The `site/` folder stays on your computer and is not uploaded. GitHub builds its own copy from `source/`.
+
 ## How it is published
 
 | Branch | Holds |
