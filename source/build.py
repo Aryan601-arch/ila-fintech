@@ -50,6 +50,7 @@ ICON_PATHS = {
     'eye': '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
     'heart': '<path d="M12 20s-8-4.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 6.5-8 11-8 11z"/>',
     'cap': '<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',
+    'chat': '<path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7A8.4 8.4 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3h.5a8.5 8.5 0 0 1 8 8v.5z"/>',
 }
 
 
@@ -58,6 +59,7 @@ def icon(name, size=24):
             f'stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">{ICON_PATHS[name]}</svg>')
 
 
+VIBER_SVG = ('<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.4 0C9.473.028 5.333.344 3.02 2.467 1.302 4.187.696 6.7.633 9.817.57 12.933.488 18.776 6.12 20.36h.003l-.004 2.416s-.037.977.61 1.177c.777.242 1.234-.5 1.98-1.302.407-.44.972-1.084 1.397-1.58 3.85.326 6.812-.416 7.15-.525.776-.252 5.176-.816 5.892-6.657.74-6.02-.36-9.83-2.34-11.546-.596-.55-3.006-2.3-8.375-2.323 0 0-.395-.025-1.037-.017zm.058 1.693c.545-.004.88.017.88.017 4.542.02 6.717 1.388 7.222 1.846 1.675 1.435 2.53 4.868 1.906 9.897v.002c-.604 4.878-4.174 5.184-4.832 5.395-.28.09-2.882.737-6.153.524 0 0-2.436 2.94-3.197 3.704-.12.12-.26.167-.352.144-.13-.033-.166-.188-.165-.414l.02-4.018c-4.762-1.32-4.485-6.292-4.43-8.895.054-2.604.543-4.738 1.996-6.173 1.96-1.773 5.474-2.018 7.11-2.03zm.38 2.602c-.167 0-.303.135-.304.302 0 .167.133.303.3.305 1.624.01 2.946.537 4.028 1.592 1.073 1.046 1.62 2.468 1.633 4.334.002.167.14.3.307.3.166-.002.3-.138.3-.304-.014-1.984-.618-3.596-1.816-4.764-1.19-1.16-2.692-1.753-4.447-1.765zm-3.96.695c-.19-.032-.4.005-.616.117l-.01.002c-.43.247-.816.562-1.146.932-.002.004-.006.004-.008.008-.267.323-.42.638-.46.948-.008.046-.01.093-.007.14 0 .136.022.27.065.4l.013.01c.135.48.473 1.276 1.205 2.604.42.768.903 1.5 1.446 2.186.27.344.56.673.87.984l.132.132c.31.308.64.6.984.87.686.543 1.418 1.027 2.186 1.447 1.328.733 2.126 1.07 2.604 1.206l.01.014c.13.042.265.064.402.063.046.002.092 0 .138-.008.31-.036.627-.19.948-.46.004 0 .003-.002.008-.005.37-.33.683-.72.93-1.148l.003-.01c.225-.432.15-.842-.18-1.12-.004 0-.698-.58-1.037-.83-.36-.255-.73-.492-1.113-.71-.51-.285-1.032-.106-1.248.174l-.447.564c-.23.283-.657.246-.657.246-3.12-.796-3.955-3.955-3.955-3.955s-.037-.426.248-.656l.563-.448c.277-.215.456-.737.17-1.248-.217-.383-.454-.756-.71-1.115-.25-.34-.826-1.033-.83-1.035-.137-.165-.31-.265-.502-.297zm4.49.88c-.158.002-.29.124-.3.282-.01.167.115.312.282.324 1.16.085 2.017.466 2.645 1.15.63.688.93 1.524.906 2.57-.002.168.13.306.3.31.166.003.305-.13.31-.297.025-1.175-.334-2.193-1.067-2.994-.74-.81-1.777-1.253-3.05-1.346h-.024zm.463 1.63c-.16.002-.29.127-.3.287-.008.167.12.31.288.32.523.028.875.175 1.113.422.24.245.388.62.416 1.164.01.167.15.295.318.287.167-.008.295-.15.287-.317-.03-.644-.215-1.178-.58-1.557-.367-.378-.893-.574-1.52-.607h-.018z"/></svg>')  # Simple Icons, CC0
 WHATSAPP_SVG = ('<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>')
 
 # ---------------------------------------------------------------- content
@@ -230,6 +232,27 @@ class Site:
         c = self.c
         return f'<a href="tel:{e(c["phone_link"])}">{e(text or c["phone"])}</a>'
 
+    def whatsapp_url(self):
+        digits = re.sub(r'\D', '', self.c.get('whatsapp', ''))
+        return 'https://wa.me/' + digits if digits else ''
+
+    def viber_url(self):
+        digits = re.sub(r'\D', '', self.c.get('viber', ''))
+        return 'viber://chat?number=%2B' + digits if digits else ''
+
+    def chat_links(self, sep=' · '):
+        links = []
+        if self.whatsapp_url():
+            links.append(f'<a href="{e(self.whatsapp_url())}" target="_blank" rel="noopener">WhatsApp</a>')
+        if self.viber_url():
+            links.append(f'<a href="{e(self.viber_url())}">Viber</a>')
+        return sep.join(links)
+
+    def chat_number(self):
+        c = self.c
+        nums = {n for n in (c.get('whatsapp'), c.get('viber')) if n}
+        return e(nums.pop()) if len(nums) == 1 else ''
+
     def mail(self, addr=None):
         addr = addr or self.c['email']
         return f'<a href="mailto:{e(addr)}">{e(addr)}</a>'
@@ -349,17 +372,20 @@ class Site:
     def footer(self):
         c = self.c
         svc_links = ''.join(f'<li><a href="services.html#{s["id"]}">{s["name"]}</a></li>' for s in SERVICES)
-        wa = ''
-        if c.get('whatsapp'):
-            digits = re.sub(r'\D', '', c['whatsapp'])
-            wa = f'\n<a class="wa" href="https://wa.me/{digits}" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">{WHATSAPP_SVG}</a>'
+        chat = ''
+        if self.whatsapp_url():
+            chat += f'<a class="wa" href="{e(self.whatsapp_url())}" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">{WHATSAPP_SVG}</a>'
+        if self.viber_url():
+            chat += f'<a class="viber" href="{e(self.viber_url())}" aria-label="Chat with us on Viber">{VIBER_SVG}</a>'
+        wa = f'\n<div class="chat">{chat}</div>' if chat else ''
+        chat_li = f'<li>{self.chat_links(" / ")}' + (f': {self.chat_number()}' if self.chat_number() else '') + '</li>' if chat else ''
         return f'''<footer>
   <div class="container">
     <div class="f-grid">
       <div>{self.logo(footer=True)}<p>We help businesses grow with websites, apps and software built and supported by one local team.</p>{self.social()}</div>
       <div><h4>Services</h4><ul>{svc_links}</ul></div>
       <div><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="solutions.html">Solutions</a></li><li><a href="blog.html">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div><h4>Contact Info</h4><ul><li><a href="{e(self.maps_url())}" target="_blank" rel="noopener">{e(c["address"])}</a></li><li>{self.tel()}</li><li>{self.mail()}</li><li>{e(c["hours"])}</li></ul></div>
+      <div><h4>Contact Info</h4><ul><li><a href="{e(self.maps_url())}" target="_blank" rel="noopener">{e(c["address"])}</a></li><li>{self.tel()}</li>{chat_li}<li>{self.mail()}</li><li>{e(c["hours"])}</li></ul></div>
     </div>
     <div class="copyright"><span>© <span data-year>{TODAY.year}</span> {e(c["name"])}. All rights reserved.</span><span class="f-bottom-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></span></div>
   </div>
@@ -727,6 +753,14 @@ class Site:
             self.add(p['slug'] + '.html', f'{p["title"]} | {c["name"]}', p['summary'], 'blog.html', main,
                      og_type='article', og_img=p['img'], extra_head='<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + '</script>')
 
+    def chat_card(self):
+        if not self.chat_links():
+            return ''
+        title = ' & '.join(n for n, u in (('WhatsApp', self.whatsapp_url()), ('Viber', self.viber_url())) if u)
+        num = f'<p>{self.chat_number()}</p>' if self.chat_number() else ''
+        return (f'        <div class="info-card"><div class="icon">{icon("chat")}</div><div><h3>Message us on {e(title)}</h3>'
+                f'{num}{self.chat_links()}</div></div>')
+
     def build_contact(self):
         c = self.c
         opts = '<option value="General enquiry" data-key="general">General enquiry</option>'
@@ -744,6 +778,7 @@ class Site:
       <p style="margin-bottom:26px">Whether you need a new website, an app or help with existing software, start with a free, no-obligation conversation.</p>
       <div class="info-cards">
         <div class="info-card"><div class="icon">{icon("phone")}</div><div><h3>Call us</h3>{self.tel()}</div></div>
+{self.chat_card()}
         <div class="info-card"><div class="icon">{icon("mail")}</div><div><h3>Email us</h3>{self.mail()}</div></div>
         <div class="info-card"><div class="icon">{icon("pin")}</div><div><h3>Visit our office</h3><p>{e(c["address"])}</p><a href="{e(self.maps_url())}" target="_blank" rel="noopener">Open in Google Maps →</a></div></div>
         <div class="info-card"><div class="icon">{icon("clock")}</div><div><h3>Office hours</h3><p>{e(c["hours"])}</p></div></div>
