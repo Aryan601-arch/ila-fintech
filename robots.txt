@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aryan601-arch.github.io/ila-fintech/sitemap.xml
