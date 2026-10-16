@@ -6,9 +6,9 @@ These items still need your real details.
 ## 1. Your details
 Edit `source/site-config.json` on GitHub (pencil icon, then **Commit changes**). The site updates by itself.
 - [ ] Phone number (`phone` and `phone_link`)
-- [ ] Email addresses (`email`, `careers_email`)
+- [x] Email address: info@ilafintech.com. Job applications go there too; set `careers_email` if you make a separate careers address
 - [ ] Office address, map search text and office hours
-- [ ] WhatsApp number (shows a chat button when filled in)
+- [x] WhatsApp and Viber number: +977 9802105050
 - [ ] Facebook, Instagram, LinkedIn and other profile links (hidden until filled in)
 - [x] Your logo (added). If your designer has the original file (SVG or a large PNG), replace the files in `source/images/brand/` for a sharper logo
 
@@ -21,8 +21,8 @@ Edit `source/site-config.json` on GitHub (pencil icon, then **Commit changes**).
 - [ ] Have someone review the Privacy Policy and Terms of Use
 
 ## 3. Forms
-- [ ] After your real email is in, send a test message from the Contact page and click the FormSubmit activation email
-- [ ] Do the same from the Careers page for the careers address
+- [ ] Make sure the info@ilafintech.com inbox works (it needs the ilafintech.com domain and an email service)
+- [ ] Send a test message from the Contact page and click the FormSubmit activation email that arrives. This covers the Careers form too while both use the same address
 
 ## 4. Your own domain (optional)
 - [ ] Get a domain: .com from any registrar, or a free .com.np (such as ilafintech.com.np) for Nepali businesses at register.com.np
