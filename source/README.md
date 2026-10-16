@@ -15,8 +15,9 @@ The finished website is built from these files.
 On GitHub: open the file, click the pencil icon, make the change and click **Commit changes**.
 The website rebuilds and goes live by itself within a few minutes (progress is under the **Actions** tab).
 
-On your own computer: run `python3 build.py`. The website is written to `../site/`, and the build
-lists any details that are still placeholders. Pillow (`pip install pillow`) is only needed to redraw the PNG icons.
+On your own computer: run `python build.py` (`python3` on a Mac). The website is written to `../site/`, and the build
+lists any details that are still placeholders. Pillow (`pip install pillow`) is optional: it sets the logo's exact size
+and draws the PNG icons when `images/brand/` has none.
 
 ## Forms
 

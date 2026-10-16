@@ -17,6 +17,7 @@ import re
 import shutil
 import urllib.parse
 from pathlib import Path
+from typing import Any
 
 SRC = Path(__file__).resolve().parent
 BRAND = SRC / 'images' / 'brand'  # optional: your own favicon-32.png, apple-touch-icon.png and icon-512.png
@@ -60,7 +61,7 @@ def icon(name, size=24):
 WHATSAPP_SVG = ('<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>')
 
 # ---------------------------------------------------------------- content
-SERVICES = [
+SERVICES: list[dict[str, Any]] = [
     dict(id='web', name='Web Development', icon='web', img='hero-code.jpg', alt='Website code on a developer screen',
          short='Professional, fast-loading websites that work on every device and show up on Google.',
          intro='Your website is often the first place a customer meets your business. We design and build fast, secure websites that work on every phone, are easy for your staff to update, and are set up to be found on Google.',
@@ -139,7 +140,7 @@ STEPS = [
 INDUSTRIES = ['Schools & Colleges', 'Hospitals & Clinics', 'Retail & eCommerce', 'Hotels & Travel', 'Restaurants & Cafés',
               'NGOs & INGOs', 'Cooperatives & Finance', 'Real Estate', 'Manufacturing', 'Startups']
 
-POSTS = [
+POSTS: list[dict[str, Any]] = [
     dict(slug='blog-website-redesign', cat='Website Tips', mins=5, img='blog-redesign.jpg', alt='A laptop on a wooden desk', svc='web',
          title='5 signs your business website needs a redesign',
          summary='Slow loading, poor mobile view and no enquiries? Here is what to fix first.',
@@ -284,7 +285,9 @@ class Site:
         if not (self.preview and fn == 'index.html'):
             parts += ['<meta charset="utf-8">', '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">']
         if fn == '404.html' and not self.preview:
-            parts.append(f'<base href="{e(self.base_path)}">')
+            # A missing page can be at any depth (/ila-fintech/a/b), so its links start from the full site address.
+            # Being a full address, it also works when 404.html is opened from a folder or a local test server.
+            parts.append(f'<base href="{e(self.domain)}/">')
         parts += [
             f'<title>{e(title)}</title>',
             f'<meta name="description" content="{e(desc)}">',
@@ -904,7 +907,7 @@ class Site:
 
     def build_404(self):
         c = self.c
-        main = f'''<section class="notfound">
+        main = '''<section class="notfound">
   <div class="container">
     <p class="big">404</p>
     <h1 style="margin:16px 0 12px">Page not found</h1>
@@ -992,7 +995,7 @@ class Site:
             d.rounded_rectangle([0, 0, S - 1, S - 1], radius=radius * scale, fill=(48, 108, 242, 255))
             font = ImageFont.truetype(font_path, int(S * 0.46)) if font_path else ImageFont.load_default()
             d.text((S / 2, S / 2), 'IL', font=font, fill='white', anchor='mm')
-            im.resize((size, size), Image.LANCZOS).save(out / name)
+            im.resize((size, size), Image.Resampling.LANCZOS).save(out / name)
 
     def placeholders(self):
         c = self.c
