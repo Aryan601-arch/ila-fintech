@@ -5,7 +5,7 @@ These items still need your real details.
 
 ## 1. Your details
 Edit `source/site-config.json` on GitHub (pencil icon, then **Commit changes**). The site updates by itself.
-- [ ] Phone number (`phone` and `phone_link`)
+- [x] Phone number: +977 9802105050
 - [x] Email address: info@ilafintech.com. Job applications go there too; set `careers_email` if you make a separate careers address
 - [ ] Office address, map search text and office hours
 - [x] WhatsApp and Viber number: +977 9802105050
